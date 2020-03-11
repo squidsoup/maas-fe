@@ -342,9 +342,9 @@ export function NodeNetworkingController(
     }
   ];
 
-  $scope.isBond = item => item.type === "bond";
-  $scope.isBridge = item => item.type === "bridge";
-  $scope.isInterface = item => item.type === "physical";
+  $scope.isBond = item => item && item.type === "bond";
+  $scope.isBridge = item => item && item.type === "bridge";
+  $scope.isInterface = item => item && item.type === "physical";
 
   // Sets loaded to true if both the node has been loaded at the
   // other required managers for this scope have been loaded.
@@ -2033,8 +2033,12 @@ export function NodeNetworkingController(
     if ($scope.selectedMode !== SELECTION_MODE.SINGLE) {
       return false;
     }
-    var nic = getSelectedInterfaces()[0];
+    const nic = getSelectedInterfaces()[0];
+    if (!nic) {
+      return false;
+    }
     if (
+      nic &&
       nic.type === INTERFACE_TYPE.ALIAS ||
       nic.type === INTERFACE_TYPE.BRIDGE
     ) {
