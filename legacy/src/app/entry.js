@@ -19,11 +19,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 require("ng-tags-input");
 require("angular-vs-repeat");
+import singleSpaAngularJS from 'single-spa-angularjs';
 import * as Sentry from "@sentry/browser";
 import * as Integrations from "@sentry/integrations";
 
 import configureRoutes from "./routes";
-import bootstrap from "./bootstrap";
+import bootstrapOverWebsocket from "./bootstrap";
 import { Footer, Header } from "@canonical/maas-ui-shared";
 
 // filters
@@ -600,4 +601,16 @@ angular
   .directive("maasVersionReloader", maasVersionReloader)
   .directive("windowWidth", windowWidth);
 
-bootstrap();
+bootstrapOverWebsocket();
+
+// export lifecycle events for singlespa
+const ngLifecycles = singleSpaAngularJS({
+  angular,
+  mainAngularModule: 'MAAS',
+  uiRouter: false,
+  preserveGlobal: false,
+});
+
+export const bootstrap = ngLifecycles.bootstrap;
+export const mount = ngLifecycles.mount;
+export const unmount = ngLifecycles.unmount;
