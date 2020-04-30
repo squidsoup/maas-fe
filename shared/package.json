@@ -1,7 +1,10 @@
 {
   "name": "@canonical/maas-ui-shared",
-  "private": false,
   "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",

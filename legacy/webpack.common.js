@@ -4,14 +4,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const DotenvFlow = require("dotenv-flow-webpack");
+const systemjsInterop = require("systemjs-webpack-interop/webpack-config");
 
-module.exports = {
+
+module.exports = systemjsInterop.modifyWebpackConfig({
   entry: {
     maas: ["babel-polyfill", "macaroon-bakery", "./src/app/entry.js"]
   },
   output: {
-    path: path.resolve(__dirname, "./build"),
-    filename: "assets/js/[name].[hash].bundle.js",
+    path: path.resolve(__dirname, "./dist"),
+    filename: "assets/js/main.js",
     publicPath: "/MAAS/"
   },
   module: {
@@ -87,4 +89,7 @@ module.exports = {
     // This hides the output from MiniCssExtractPlugin as it's incredibly verbose.
     children: false
   }
-};
+});
+
+// Throws errors if webpack config won't interop well with SystemJS
+systemjsInterop.checkWebpackConfig(module.exports);
