@@ -1,6 +1,10 @@
 {
   "name": "@canonical/maas-ui-shared",
   "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "private": false,
   "publishConfig": {
