@@ -410,8 +410,9 @@ const configureSentry = $window => {
   Sentry.setExtra("maasVersion", $window.CONFIG.version);
 };
 
+const moduleName = "MAAS";
 angular
-  .module("MAAS", [
+  .module(moduleName, [
     ngRoute,
     ngCookies,
     ngSanitize,
@@ -614,3 +615,5 @@ const ngLifecycles = singleSpaAngularJS({
 export const bootstrap = ngLifecycles.bootstrap;
 export const mount = ngLifecycles.mount;
 export const unmount = ngLifecycles.unmount;
+
+export default moduleName;
