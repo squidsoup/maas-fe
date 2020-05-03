@@ -607,7 +607,7 @@ bootstrapOverWebsocket();
 // export lifecycle events for singlespa
 const ngLifecycles = singleSpaAngularJS({
   angular,
-  mainAngularModule: 'MAAS',
+  mainAngularModule: moduleName,
   uiRouter: false,
   preserveGlobal: false,
 });
