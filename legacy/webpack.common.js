@@ -10,8 +10,8 @@ module.exports = {
     maas: ["babel-polyfill", "macaroon-bakery", "./src/app/entry.js"]
   },
   output: {
-    path: path.resolve(__dirname, "./build"),
-    filename: "assets/js/[name].[hash].bundle.js",
+    path: path.resolve(__dirname, "./dist"),
+    filename: "assets/js/main.js",
     publicPath: "/MAAS/"
   },
   module: {
