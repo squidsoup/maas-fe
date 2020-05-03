@@ -1,5 +1,5 @@
 {
-  "name": "@canonical/maas-ui-legacy",
+  "name": "@blr/maas-ui-legacy",
   "version": "0.1.0",
   "private": false,
   "publishConfig": {
