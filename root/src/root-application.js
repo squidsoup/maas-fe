@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
 /*eslint no-undef: "error"*/
+/* global System */
 import { registerApplication, start } from "single-spa";
 
 function showWhenAnyOf(routes) {
@@ -24,7 +25,7 @@ function showExcept(routes) {
 
 registerApplication({
   name: "legacy-app",
-  app: () => import("../../legacy/src/app/entry"),
+  app: () => System.import("legacy"),
   activeWhen: "/",
 });
 

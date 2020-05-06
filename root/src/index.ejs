@@ -10,7 +10,8 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "root-application": "http://localhost:9000/src/root-application.js"
+        "root": "http://localhost:9000/src/root-application.js",
+        "legacy": "http://localhost:8400/app/entry.js"
       }
     }
   </script>
@@ -22,7 +23,7 @@
 </head>
 <body>
   <script>
-    System.import('root-application');
+    System.import('root');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
