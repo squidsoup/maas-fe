@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
-/* global System */
 /*eslint no-undef: "error"*/
 import { registerApplication, start } from "single-spa";
 
@@ -25,7 +24,7 @@ function showExcept(routes) {
 
 registerApplication({
   name: "legacy-app",
-  app: () => System.import("../../legacy/dist/assets/js/main.js"),
+  app: () => import("../../legacy/src/app/entry"),
   activeWhen: "/",
 });
 

@@ -612,21 +612,8 @@ const ngLifecycles = singleSpaAngularJS({
   preserveGlobal: false,
 });
 
-System.register([], function (_export) {
-  return {
-    execute: function () {
-      _export(ngLifecycles);
-    },
-  };
-});
-
-window.legacyApp = ngLifecycles;
-
-//export default ngLifecycles;
-/*
 export const bootstrap = ngLifecycles.bootstrap;
 export const mount = ngLifecycles.mount;
 export const unmount = ngLifecycles.unmount;
 
 export default moduleName;
-*/
