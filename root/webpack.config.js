@@ -1,63 +1,60 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    'root-application': 'root-application.js',
+    "root-application": "src/root-application.js",
   },
   output: {
-    publicPath: '/',
-    filename: '[name].js',
+    publicPath: "/",
+    filename: "[name].js",
   },
   module: {
     rules: [
       {
-        parser: {
-          system: false,
-        },
-      },
-      {
         test: /\.js?$/,
-        exclude: [path.resolve(__dirname, 'node_modules')],
-        loader: ['babel-loader', 'eslint-loader'],
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "node_modules", "@blrandel", "maas-ui-legacy"),
+        ],
+        loader: ["babel-loader", "eslint-loader"],
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.html$/,
+        use: {
+          loader: "html-loader",
+          options: {
+            ignoreCustomFragments: [/\{\$.*?\$}/, /\{\{.*?\}\}/],
+            removeComments: true,
+            collapseWhitespace: true,
+          },
+        },
+      }
     ],
   },
   node: {
-    fs: 'empty',
+    fs: "empty",
   },
   resolve: {
-    modules: [__dirname, 'node_modules'],
+    modules: [__dirname, "node_modules"],
+    extensions: [".js"],
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['dist'],
+      cleanAfterEveryBuildPatterns: ["dist"],
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(
-          __dirname,
-          'node_modules/single-spa-layout-app/dist/img',
-        ),
-        to: path.resolve(__dirname, 'dist/img'),
-      },
-    ]),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(__dirname, "src", "index.html"),
       inject: false,
     }),
   ],
-  devtool: 'source-map',
+  devtool: "source-map",
   externals: [],
   devServer: {
     historyApiFallback: true,

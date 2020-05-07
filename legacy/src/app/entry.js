@@ -610,10 +610,9 @@ const ngLifecycles = singleSpaAngularJS({
   mainAngularModule: moduleName,
   uiRouter: false,
   preserveGlobal: false,
+  strictDi: true
 });
 
 export const bootstrap = ngLifecycles.bootstrap;
 export const mount = ngLifecycles.mount;
 export const unmount = ngLifecycles.unmount;
-
-export default ngLifecycles;

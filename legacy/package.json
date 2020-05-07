@@ -1,10 +1,11 @@
 {
   "name": "@blrandel/maas-ui-legacy",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "main": "./src/app/entry",
   "repository": {
     "type": "git",
     "url": "https://github.com/canonical-web-and-design/maas-ui.git"

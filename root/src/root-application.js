@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
-import * as singleSpa from "single-spa";
-import legacyLifecycles from "../legacy/src/app/entry";
+/* global window legacyApp */
+import { registerApplication, start } from "single-spa";
 
 function showWhenAnyOf(routes) {
   return function (location) {
@@ -21,10 +21,10 @@ function showExcept(routes) {
   };
 }
 
-singleSpa.registerApplication(
-  "legacy",
-  () => import(legacyLifecycles),
-  showWhenAnyOf(["/"])
-);
+registerApplication({
+  name: "legacy",
+  app: () => import("@blrandel/maas-ui-legacy"),
+  activeWhen: "/",
+});
 
-singleSpa.start();
+start();
