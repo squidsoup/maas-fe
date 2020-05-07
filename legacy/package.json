@@ -1,12 +1,9 @@
 {
   "name": "@blrandel/maas-ui-legacy",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "publishConfig": {
     "access": "public"
-  },
-  "output": {
-    "libraryTarget": "cjs"
   },
   "repository": {
     "type": "git",
