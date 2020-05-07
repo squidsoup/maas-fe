@@ -1,13 +1,10 @@
 {
   "name": "@blrandel/maas-ui-legacy",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist/**/*"
-  ],
   "main": "dist/assets/js/main.js",
   "repository": {
     "type": "git",
@@ -84,7 +81,6 @@
     "macaroon-bakery": "0.2.1",
     "ng-tags-input": "3.2.0",
     "single-spa-angularjs": "^3.2.0",
-    "systemjs-webpack-interop": "^2.1.0",
     "vanilla-framework": "2.0.1"
   },
   "npmpackagejsonlint": {
