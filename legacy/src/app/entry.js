@@ -616,4 +616,4 @@ export const bootstrap = ngLifecycles.bootstrap;
 export const mount = ngLifecycles.mount;
 export const unmount = ngLifecycles.unmount;
 
-export default moduleName;
+export default ngLifecycles;
