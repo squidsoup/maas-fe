@@ -609,8 +609,7 @@ const ngLifecycles = singleSpaAngularJS({
   angular,
   mainAngularModule: moduleName,
   uiRouter: false,
-  preserveGlobal: false,
-  strictDi: true
+  preserveGlobal: false
 });
 
 export const bootstrap = ngLifecycles.bootstrap;
