@@ -78,7 +78,6 @@ const ScriptsUpload = ({ type }) => {
     isDragReject,
   } = useDropzone({
     onDrop,
-    accept: "text/*, application/x-csh, application/x-sh",
     maxSize: MAX_SIZE_BYTES,
     multiple: false,
   });
